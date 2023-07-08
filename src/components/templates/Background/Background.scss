@@ -1,0 +1,49 @@
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1000;
+}
+
+.border {
+  stroke: var(--secondary);
+  position: absolute;
+  animation: expand 5s ease-in-out forwards;
+
+  &--bottom {
+    width: calc(100vw - (var(--bg-padding) * 2) - 2px);
+    bottom: var(--bg-padding);
+  }
+
+  &--top {
+    width: calc(100vw - (var(--bg-padding) * 2) - 2px);
+    rotate: 180deg;
+    top: var(--bg-padding);
+  }
+
+  &--left {
+    height: calc(100vh - (var(--bg-padding) * 2) - 2px);
+    left: var(--bg-padding);
+    rotate: 180deg;
+  }
+
+  &--right {
+    height: calc(100vh - (var(--bg-padding) * 2) - 2px);
+    right: var(--bg-padding);
+  }
+}
+
+@keyframes expand {
+  0% {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
