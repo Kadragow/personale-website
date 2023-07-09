@@ -4,6 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  padding: var(--bg-padding);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +14,7 @@
 .border {
   stroke: var(--secondary);
   position: absolute;
-  animation: expand 5s ease-in-out forwards;
+  animation: expand var(--t-long) ease-in-out forwards;
 
   &--bottom {
     width: calc(100vw - (var(--bg-padding) * 2) - 2px);
