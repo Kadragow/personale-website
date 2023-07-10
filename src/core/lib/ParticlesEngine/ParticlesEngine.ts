@@ -1,12 +1,12 @@
-import { Dimension } from '../models/dimension';
-import { Particle } from './Particle';
-import { hexToRgb } from './helpers/colors';
-import { getCssVariable } from './helpers/variable';
+import Dimension from '../../models/dimension';
+import Particle from './Particle';
+import { hexToRgb } from '../helpers/colors';
+import { getCssVariable } from '../helpers/variable';
 
 const ANIMATION_INTERVAL = 50;
-const MAX_RANGE = 300;
-const PARTICLES_AMOUNT = 50;
-export class PartclesEngine {
+const MAX_RANGE = 150;
+const PARTICLES_AMOUNT = 150;
+export default class PartclesEngine {
   private bounds: Dimension;
   private context: CanvasRenderingContext2D;
   public particles: Particle[] = [];
@@ -58,6 +58,9 @@ export class PartclesEngine {
     this.context.moveTo(p1.position.x, p1.position.y);
     this.context.lineTo(p2.position.x, p2.position.y);
     this.context.stroke();
+
+    // Its here due to max distance breakpoint
+    // p1.addGravityVelocity(p2);
   }
 
   private draw(): void {

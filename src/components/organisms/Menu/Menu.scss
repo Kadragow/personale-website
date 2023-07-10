@@ -1,0 +1,21 @@
+@import '../../../styles/mixins/_center.scss';
+
+.menu {
+  height: 100%;
+  @include center;
+
+  &--container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+    padding: 10px;
+    border-left: 1px solid var(--secondary);
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+
+  &--link-item {
+    padding: 10px 0 10px 0;
+  }
+}

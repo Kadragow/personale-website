@@ -1,8 +1,8 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import './ParticlesCanvas.scss';
-import { PartclesEngine } from '@/core/lib/ParticlesEngine';
-import { Dimension } from '@/core/models/dimension';
+import PartclesEngine from '@/core/lib/ParticlesEngine/ParticlesEngine';
+import Dimension from '@/core/models/dimension';
 
 const ParticlesCanvas = (): React.ReactNode => {
   const containerRef: React.MutableRefObject<HTMLDivElement | null> =

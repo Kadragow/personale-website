@@ -1,10 +1,13 @@
-import { Dimension } from '../models/dimension';
+import Dimension from '../../models/dimension';
 
+const G = 0.006;
 const AGING: number = 0.1;
 const BOUNDS_OFFSET: number = 5;
 const MAX_AGE_PULL: number = 100;
 const MIN_AGE_PULL: number = 10;
-export class Particle {
+const MAX_SPEED: number = 0.5;
+const MIN_SPEED: number = 0.5;
+export default class Particle {
   public position!: Dimension;
   public speed!: Dimension;
   public bounds!: Dimension;
@@ -24,8 +27,8 @@ export class Particle {
     };
 
     this.speed = {
-      x: (Math.random() - 0.5) * 1,
-      y: (Math.random() - 0.5) * 1,
+      x: Math.random() * (MAX_SPEED + MIN_SPEED) - MIN_SPEED,
+      y: Math.random() * (MAX_SPEED + MIN_SPEED) - MIN_SPEED,
     };
 
     this.age = respawn ? 0 : Math.random() * MAX_AGE_PULL + MIN_AGE_PULL;
@@ -61,5 +64,24 @@ export class Particle {
       this.speed.y = -this.speed.y;
 
     if (this.cycleFinished) this.init(true);
+  }
+
+  // TODO: implement this correctly
+  public addGravityVelocity(p: Particle) {
+    const ySign = Math.sign(this.position.y - p.position.y);
+    const xSign = Math.sign(this.position.x - p.position.x);
+    const vInc = p.strength * this.strength * G;
+
+    if (
+      (xSign && this.speed.x < MAX_SPEED) ||
+      (!xSign && this.speed.x > -MAX_SPEED)
+    )
+      this.speed.x = this.speed.x + xSign * vInc;
+
+    if (
+      (ySign && this.speed.y < MAX_SPEED) ||
+      (!ySign && this.speed.y > -MAX_SPEED)
+    )
+      this.speed.y = this.speed.y + ySign * vInc;
   }
 }
