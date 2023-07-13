@@ -11,8 +11,8 @@
 
     padding: 10px;
     border-left: 1px solid var(--secondary);
-    border-top-left-radius: 0 !important;
-    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   &--link-item {

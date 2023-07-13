@@ -1,7 +1,7 @@
 import Dimension from '../../models/dimension';
 
 const G = 0.006;
-const AGING: number = 0.1;
+const AGING: number = 0.2137;
 const BOUNDS_OFFSET: number = 5;
 const MAX_AGE_PULL: number = 100;
 const MIN_AGE_PULL: number = 10;

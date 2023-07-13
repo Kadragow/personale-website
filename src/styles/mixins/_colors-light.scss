@@ -1,11 +1,11 @@
-:root {
-  --primary-color: #d8f0ff;
+@mixin colors_light {
+  --primary: #d8f0ff;
   --secondary: #222222;
-  --accent: #ffc800;
   --background: #f7f7f7;
   --text: #222222;
-  --shadow-light: #d8f0ff1a;
-  --shadow-strong: #d8f0ff80;
+  --accent: #ffc800;
+  --shadow-light: #2222221a;
+  --shadow-strong: #22222280;
 
   // --highlight: #00ffff;
   // --link: #ff00a4;

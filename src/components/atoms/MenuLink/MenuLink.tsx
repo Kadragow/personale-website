@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import './MenuLInk.scss';
+import './MenuLink.scss';
 
 const MenuLink = ({
   label,

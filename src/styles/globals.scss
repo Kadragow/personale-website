@@ -1,5 +1,7 @@
 @use './variables';
 @use './colors';
+@import './mixins/_colors-dark.scss';
+@import './mixins/_colors-light.scss';
 
 * {
   box-sizing: border-box;
@@ -26,18 +28,12 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: #222222;
-    --secondary: #d8f0ff;
-    --background: #222222;
-    --text: #f7f7f7;
+    @include colors-dark;
   }
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --primary: #d8f0ff;
-    --secondary: #222222;
-    --background: #f7f7f7;
-    --text: #222222;
+    @include colors-light;
   }
 }
