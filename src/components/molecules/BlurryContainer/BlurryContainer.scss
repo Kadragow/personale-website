@@ -1,7 +1,7 @@
 .blurry-container {
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 10px var(--shadow-light) inset;
+  // box-shadow: 0 0 10px var(--shadow-light) inset;
 
   &::before {
     content: '';

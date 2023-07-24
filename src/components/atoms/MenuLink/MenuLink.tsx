@@ -1,6 +1,8 @@
+'use client';
+import './MenuLink.scss';
 import Link from 'next/link';
 import React from 'react';
-import './MenuLink.scss';
+import { usePathname } from 'next/navigation';
 
 const MenuLink = ({
   label,
@@ -11,8 +13,12 @@ const MenuLink = ({
   href: string;
   className?: string;
 }): React.ReactNode => {
+  const pathname = usePathname();
+
+  const getActiveClass = pathname === href ? 'active' : '';
+
   return (
-    <Link href={href} className={`menu-link ${className}`}>
+    <Link href={href} className={`menu-link ${getActiveClass} ${className}`}>
       {label}
     </Link>
   );

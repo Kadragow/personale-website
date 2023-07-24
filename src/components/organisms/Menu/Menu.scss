@@ -1,8 +1,13 @@
 @import '../../../styles/mixins/_center.scss';
 
 .menu {
-  height: 100%;
   @include center;
+  height: 100%;
+  width: 125px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
   &--container {
     display: flex;
@@ -10,7 +15,6 @@
     flex-direction: column;
 
     padding: 10px;
-    border-left: 1px solid var(--secondary);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
   }

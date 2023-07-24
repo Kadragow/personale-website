@@ -2,4 +2,28 @@
   color: var(--text);
   text-decoration: none;
   font-weight: bold;
+  position: relative;
+  width: 100%;
+
+  &:after {
+    content: '';
+    position: absolute;
+    background-color: var(--text);
+    left: -5px;
+    bottom: 5px;
+
+    transition: all ease-in-out var(--t-tiny);
+  }
+
+  &:after {
+    height: 1px;
+    width: 0;
+  }
+
+  &.active,
+  &:hover {
+    &:after {
+      width: 110%;
+    }
+  }
 }

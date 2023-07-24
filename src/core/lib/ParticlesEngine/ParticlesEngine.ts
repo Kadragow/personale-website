@@ -53,7 +53,7 @@ export default class PartclesEngine {
     const cssColor = getCssVariable('--text');
     const lineColor = hexToRgb(cssColor);
     this.context.strokeStyle = `rgba(${lineColor}, ${opacity})`;
-    this.context.lineWidth = 1;
+    this.context.lineWidth = 2;
     this.context.beginPath();
     this.context.moveTo(p1.position.x, p1.position.y);
     this.context.lineTo(p2.position.x, p2.position.y);
