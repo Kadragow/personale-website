@@ -1,0 +1,39 @@
+@use './variables';
+@use './colors';
+@import './mixins/_colors-dark.scss';
+@import './mixins/_colors-light.scss';
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+
+  /* #8C42FF */
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include colors-dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    @include colors-light;
+  }
+}

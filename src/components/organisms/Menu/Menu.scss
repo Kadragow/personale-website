@@ -1,0 +1,25 @@
+@import '../../../styles/mixins/_center.scss';
+
+.menu {
+  @include center;
+  height: 100%;
+  width: 125px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &--container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+    padding: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  &--link-item {
+    padding: 10px 0 10px 0;
+  }
+}
