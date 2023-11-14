@@ -45,6 +45,7 @@ export default class PartclesEngine {
     );
 
     if (distance > maxDist) return;
+
     const opacity = Math.min(
       p1.strength * p2.strength * (1 - distance / maxDist),
       1
@@ -53,7 +54,7 @@ export default class PartclesEngine {
     const cssColor = getCssVariable('--text');
     const lineColor = hexToRgb(cssColor);
     this.context.strokeStyle = `rgba(${lineColor}, ${opacity})`;
-    this.context.lineWidth = 2;
+    this.context.lineWidth = 1;
     this.context.beginPath();
     this.context.moveTo(p1.position.x, p1.position.y);
     this.context.lineTo(p2.position.x, p2.position.y);
@@ -66,10 +67,19 @@ export default class PartclesEngine {
   private draw(): void {
     this.context.lineCap = 'round';
     this.context.clearRect(0, 0, this.bounds.x, this.bounds.y);
-    this.particles.forEach((p1: Particle): void => {
-      this.drawParticle(p1);
+
+    const connectedPartices: { [key: string]: boolean } = {};
+
+    this.particles.forEach((p1: Particle, idx1: number): void => {
       p1.move();
-      this.particles.forEach((p2: Particle): void => {
+      this.drawParticle(p1);
+      this.particles.forEach((p2: Particle, idx2: number): void => {
+        const pair: string = `${idx1}-${idx2}`;
+        const reversedPair: string = `${idx2}-${idx1}`;
+
+        if (connectedPartices[pair] || connectedPartices[reversedPair]) return;
+        connectedPartices[pair] = true;
+        connectedPartices[reversedPair] = true;
         this.drawLine(p1, p2);
       });
     });

@@ -55,13 +55,16 @@ export default class Particle {
     if (
       this.position.x > this.bounds.x - BOUNDS_OFFSET ||
       this.position.x < BOUNDS_OFFSET
-    )
+    ) {
       this.speed.x = -this.speed.x;
+    }
+
     if (
       this.position.y > this.bounds.y - BOUNDS_OFFSET ||
       this.position.y < BOUNDS_OFFSET
-    )
+    ) {
       this.speed.y = -this.speed.y;
+    }
 
     if (this.cycleFinished) this.init(true);
   }
