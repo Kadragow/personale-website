@@ -1,17 +1,5 @@
-import BlurryContainer from '@/components/molecules/BlurryContainer/BlurryContainer';
+import HomePage from '@/components/templates/HomePage/HomePage';
 
 export default function Home() {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        width: '100%',
-        height: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <BlurryContainer>content</BlurryContainer>
-    </div>
-  );
+  return <HomePage />;
 }
